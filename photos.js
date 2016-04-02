@@ -1,7 +1,7 @@
 /*    
     Program Name:  Photo Gallery Application
-    Author: 
-    Date:   
+    Author: Jianwei Zhang
+    Date:   03/30/2016
     Filename: photos.js
  */
 
@@ -10,6 +10,16 @@
 /* global variables */
 var photoOrder = [1,2,3,4,5];
 var figureCount = 3;
+function populateFigures() {
+  var filename;
+  var currentFig;
+  
+    for (var i = 1; i < 4; i++) {
+      filename = "images/IMG_0" + photoOrder[i] + "sm.jpg";
+      currentFig = document.getElementsByTagName("img")[i - 1];
+      currentFig.src = filename;
+   }//end of loop
+}//end of populateFigures()
 
 
 
@@ -44,7 +54,21 @@ function leftArrow() {
    }//end of for loop
 }//end of leftArrow Function
 
-
+/* create event listeners for left arrow, right arrow, and center figure element */
+function createEventListeners() {
+   var leftarrow = document.getElementById("leftarrow");
+   if (leftarrow.addEventListener) {
+      leftarrow.addEventListener("click", leftArrow, false);
+   } else if (leftarrow.attachEvent) {
+      leftarrow.attachEvent("onclick", leftArrow);
+   }//end of else if
+   var rightarrow = document.getElementById("rightarrow");
+   if (rightarrow.addEventListener) {
+      rightarrow.addEventListener("click", rightArrow, false);
+   } else if (rightarrow.attachEvent) {
+      rightarrow.attachEvent("onclick", rightArrow);
+   }//end of else if
+}//end of createEventListerners function
 
 
 
